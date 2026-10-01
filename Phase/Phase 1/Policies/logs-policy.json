@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowS3ServerAccessLogsFromMarketingBucket",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::aura-logs-ak-seng4620-x7k2/logs/marketing/*",
+      "Condition": {
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:s3:::aura-marketing-ak-seng4620-x7k2"
+        },
+        "StringEquals": {
+          "aws:SourceAccount": "$ACCOUNT_ID"
+        }
+      }
+    }
+  ]
+}

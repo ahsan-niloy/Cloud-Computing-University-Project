@@ -1,0 +1,4 @@
+export PRIMARY=ca-central-1
+export DR=ca-west-1
+export SUFFIX=aura-ak-2026
+export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
