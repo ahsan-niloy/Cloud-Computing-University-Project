@@ -9,7 +9,7 @@
       "Condition": {
         "StringEquals": {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-          "token.actions.githubusercontent.com:sub": "repo:ahsan-niloy/Cloud-Computing-University-Project:environment:production"
+          "token.actions.githubusercontent.com:sub": "repo:ahsan-niloy@81963654/Cloud-Computing-University-Project@1400583342:environment:production"
         }
       }
     }
