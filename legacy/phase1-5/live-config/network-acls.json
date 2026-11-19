@@ -1,0 +1,316 @@
+{
+    "NetworkAcls": [
+        {
+            "Associations": [
+                {
+                    "NetworkAclAssociationId": "aclassoc-0d89c9e9f443ddace",
+                    "NetworkAclId": "acl-0b7f9709ab1569efb",
+                    "SubnetId": "subnet-0e0d127ba2f91302b"
+                },
+                {
+                    "NetworkAclAssociationId": "aclassoc-0852b4524e99b499d",
+                    "NetworkAclId": "acl-0b7f9709ab1569efb",
+                    "SubnetId": "subnet-033271fa3d776633c"
+                }
+            ],
+            "Entries": [
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 443,
+                        "To": 443
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "10.10.20.0/23",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 80,
+                        "To": 80
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 110
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 1024,
+                        "To": 65535
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 120
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 443,
+                        "To": 443
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 80,
+                        "To": 80
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 110
+                },
+                {
+                    "CidrBlock": "10.10.20.0/23",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 443,
+                        "To": 443
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 120
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 1024,
+                        "To": 65535
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 130
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                }
+            ],
+            "IsDefault": false,
+            "NetworkAclId": "acl-0b7f9709ab1569efb",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-nacl-public"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        },
+        {
+            "Associations": [
+                {
+                    "NetworkAclAssociationId": "aclassoc-000aac91930da3105",
+                    "NetworkAclId": "acl-0c5f6056b9c6f6d8c",
+                    "SubnetId": "subnet-01813da6c3a207aba"
+                },
+                {
+                    "NetworkAclAssociationId": "aclassoc-0400df2f31d1f09e5",
+                    "NetworkAclId": "acl-0c5f6056b9c6f6d8c",
+                    "SubnetId": "subnet-04a60fc351f464234"
+                }
+            ],
+            "Entries": [
+                {
+                    "CidrBlock": "10.10.20.0/23",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 1024,
+                        "To": 65535
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                },
+                {
+                    "CidrBlock": "10.10.20.0/23",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 3306,
+                        "To": 3306
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                }
+            ],
+            "IsDefault": false,
+            "NetworkAclId": "acl-0c5f6056b9c6f6d8c",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-nacl-isolated"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        },
+        {
+            "Associations": [],
+            "Entries": [
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "Protocol": "-1",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "Protocol": "-1",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                }
+            ],
+            "IsDefault": true,
+            "NetworkAclId": "acl-0f4401682b0c6e546",
+            "Tags": [],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        },
+        {
+            "Associations": [
+                {
+                    "NetworkAclAssociationId": "aclassoc-088ddc4a1e25b2d5c",
+                    "NetworkAclId": "acl-034d70d80e3b9a10e",
+                    "SubnetId": "subnet-048e0be37958ba317"
+                },
+                {
+                    "NetworkAclAssociationId": "aclassoc-0ec9cd0869f5ea910",
+                    "NetworkAclId": "acl-034d70d80e3b9a10e",
+                    "SubnetId": "subnet-03024331056936123"
+                }
+            ],
+            "Entries": [
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 443,
+                        "To": 443
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "10.10.30.0/23",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 3306,
+                        "To": 3306
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 110
+                },
+                {
+                    "CidrBlock": "10.10.10.0/23",
+                    "Egress": true,
+                    "PortRange": {
+                        "From": 1024,
+                        "To": 65535
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 120
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": true,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                },
+                {
+                    "CidrBlock": "10.10.10.0/23",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 80,
+                        "To": 80
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 100
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "PortRange": {
+                        "From": 1024,
+                        "To": 65535
+                    },
+                    "Protocol": "6",
+                    "RuleAction": "allow",
+                    "RuleNumber": 110
+                },
+                {
+                    "CidrBlock": "0.0.0.0/0",
+                    "Egress": false,
+                    "Protocol": "-1",
+                    "RuleAction": "deny",
+                    "RuleNumber": 32767
+                }
+            ],
+            "IsDefault": false,
+            "NetworkAclId": "acl-034d70d80e3b9a10e",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-nacl-private"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        }
+    ]
+}

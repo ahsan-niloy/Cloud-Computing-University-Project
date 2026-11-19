@@ -1,0 +1,16 @@
+{
+  "ImageId": "ami-049d8661175c76422",
+  "InstanceType": "t3.micro",
+  "IamInstanceProfile": { "Name": "aura-ledger-ec2-profile" },
+  "SecurityGroupIds": ["sg-041aa6a27ab042e29"],
+  "MetadataOptions": { "HttpTokens": "required", "HttpPutResponseHopLimit": 1, "HttpEndpoint": "enabled" },
+  "BlockDeviceMappings": [{
+    "DeviceName": "/dev/xvda",
+    "Ebs": { "VolumeSize": 8, "VolumeType": "gp3", "Encrypted": true, "DeleteOnTermination": true }
+  }],
+  "Monitoring": { "Enabled": true },
+  "TagSpecifications": [{
+    "ResourceType": "instance",
+    "Tags": [{ "Key": "Name", "Value": "aura-ledger-asg" }, { "Key": "Project", "Value": "AuraDigitalBank" }]
+  }]
+}

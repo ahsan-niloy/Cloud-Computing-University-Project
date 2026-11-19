@@ -1,0 +1,9 @@
+{
+  "Rules": [{
+    "ID": "onboarding-to-deep-archive-after-90-days",
+    "Status": "Enabled",
+    "Filter": { "Prefix": "onboarding/" },
+    "Transitions": [{ "Days": 90, "StorageClass": "DEEP_ARCHIVE" }],
+    "NoncurrentVersionTransitions": [{ "NoncurrentDays": 90, "StorageClass": "DEEP_ARCHIVE" }]
+  }]
+}

@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Terraform: local working files and state (state lives in the S3 backend)
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Archives used to move files to and from CloudShell
+*.zip
+*.tar.gz

@@ -1,0 +1,9 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Sid": "TempReadRdsMasterSecretForMigration",
+    "Effect": "Allow",
+    "Action": "secretsmanager:GetSecretValue",
+    "Resource": "arn:aws:secretsmanager:ca-central-1:832866945974:secret:rds!db-675eba9c-7843-4827-807e-3d58ff096837-u54y5c"
+  }]
+}

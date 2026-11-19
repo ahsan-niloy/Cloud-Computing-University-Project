@@ -1,0 +1,166 @@
+{
+    "RouteTables": [
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-07ab5f3a054734939",
+                    "RouteTableId": "rtb-067bea57b06722e0a",
+                    "SubnetId": "subnet-03024331056936123",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                },
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-02ce1e913042e15d3",
+                    "RouteTableId": "rtb-067bea57b06722e0a",
+                    "SubnetId": "subnet-048e0be37958ba317",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-067bea57b06722e0a",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.10.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "NatGatewayId": "nat-0d8612812ce5d095d",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-rt-private"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-081f58e5970d2e3c6",
+                    "RouteTableId": "rtb-09d695844a0b87005",
+                    "SubnetId": "subnet-04a60fc351f464234",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                },
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-099d121e22281bbfe",
+                    "RouteTableId": "rtb-09d695844a0b87005",
+                    "SubnetId": "subnet-01813da6c3a207aba",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-09d695844a0b87005",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.10.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-rt-isolated"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": true,
+                    "RouteTableAssociationId": "rtbassoc-0692f7c3e0fe3698f",
+                    "RouteTableId": "rtb-04747d6676d6f8c61",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-04747d6676d6f8c61",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.10.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-rt-main-unused"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-0ae5868a9c6902dc2",
+                    "RouteTableId": "rtb-05b1e84299c95b758",
+                    "SubnetId": "subnet-033271fa3d776633c",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                },
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-0d6f5818539171281",
+                    "RouteTableId": "rtb-05b1e84299c95b758",
+                    "SubnetId": "subnet-0e0d127ba2f91302b",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-05b1e84299c95b758",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.10.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "GatewayId": "igw-083702ea52c684126",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-rt-public"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "OwnerId": "832866945974"
+        }
+    ]
+}

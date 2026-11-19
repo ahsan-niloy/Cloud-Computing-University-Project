@@ -1,0 +1,180 @@
+{
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-0df637291c09ffd51",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 80,
+                    "ToPort": 80,
+                    "UserIdGroupPairs": [
+                        {
+                            "Description": "HTTP to app servers",
+                            "UserId": "832866945974",
+                            "GroupId": "sg-041aa6a27ab042e29"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-alb-sg"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "SecurityGroupArn": "arn:aws:ec2:ca-central-1:832866945974:security-group/sg-0df637291c09ffd51",
+            "OwnerId": "832866945974",
+            "GroupName": "aura-alb-sg",
+            "Description": "Aura ALB - HTTP from internet, forwards to app tier only",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 80,
+                    "ToPort": 80,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "Public HTTP",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        },
+        {
+            "GroupId": "sg-03d3becdc3d5c18de",
+            "IpPermissionsEgress": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-db-sg"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "SecurityGroupArn": "arn:aws:ec2:ca-central-1:832866945974:security-group/sg-03d3becdc3d5c18de",
+            "OwnerId": "832866945974",
+            "GroupName": "aura-db-sg",
+            "Description": "Aura ledger DB - MySQL from app tier only",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 3306,
+                    "ToPort": 3306,
+                    "UserIdGroupPairs": [
+                        {
+                            "Description": "MySQL from ledger app servers",
+                            "UserId": "832866945974",
+                            "GroupId": "sg-041aa6a27ab042e29"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        },
+        {
+            "GroupId": "sg-02fd471aa094a3934",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "SecurityGroupArn": "arn:aws:ec2:ca-central-1:832866945974:security-group/sg-02fd471aa094a3934",
+            "OwnerId": "832866945974",
+            "GroupName": "default",
+            "Description": "default VPC security group",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [
+                        {
+                            "UserId": "832866945974",
+                            "GroupId": "sg-02fd471aa094a3934"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        },
+        {
+            "GroupId": "sg-041aa6a27ab042e29",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 3306,
+                    "ToPort": 3306,
+                    "UserIdGroupPairs": [
+                        {
+                            "Description": "MySQL to ledger DB",
+                            "UserId": "832866945974",
+                            "GroupId": "sg-03d3becdc3d5c18de"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                },
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 443,
+                    "ToPort": 443,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "HTTPS to AWS APIs and package repos",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-app-sg"
+                }
+            ],
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "SecurityGroupArn": "arn:aws:ec2:ca-central-1:832866945974:security-group/sg-041aa6a27ab042e29",
+            "OwnerId": "832866945974",
+            "GroupName": "aura-app-sg",
+            "Description": "Aura ledger app servers - no inbound, HTTPS outbound only",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 80,
+                    "ToPort": 80,
+                    "UserIdGroupPairs": [
+                        {
+                            "Description": "HTTP from ALB only",
+                            "UserId": "832866945974",
+                            "GroupId": "sg-0df637291c09ffd51"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,220 @@
+{
+    "Subnets": [
+        {
+            "AvailabilityZoneId": "cac1-az1",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "832866945974",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-isolated-a"
+                },
+                {
+                    "Key": "Tier",
+                    "Value": "isolated"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:ca-central-1:832866945974:subnet/subnet-01813da6c3a207aba",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-01813da6c3a207aba",
+            "State": "available",
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "CidrBlock": "10.10.30.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "ca-central-1a",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "cac1-az2",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "832866945974",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Tier",
+                    "Value": "private"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "aura-private-b"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:ca-central-1:832866945974:subnet/subnet-048e0be37958ba317",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-048e0be37958ba317",
+            "State": "available",
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "CidrBlock": "10.10.21.0/24",
+            "AvailableIpAddressCount": 251,
+            "AvailabilityZone": "ca-central-1b",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "cac1-az2",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "832866945974",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Tier",
+                    "Value": "public"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "aura-public-b"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:ca-central-1:832866945974:subnet/subnet-0e0d127ba2f91302b",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-0e0d127ba2f91302b",
+            "State": "available",
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "CidrBlock": "10.10.11.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "ca-central-1b",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "cac1-az2",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "832866945974",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-isolated-b"
+                },
+                {
+                    "Key": "Tier",
+                    "Value": "isolated"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:ca-central-1:832866945974:subnet/subnet-04a60fc351f464234",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-04a60fc351f464234",
+            "State": "available",
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "CidrBlock": "10.10.31.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "ca-central-1b",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "cac1-az1",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "832866945974",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aura-public-a"
+                },
+                {
+                    "Key": "Tier",
+                    "Value": "public"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:ca-central-1:832866945974:subnet/subnet-033271fa3d776633c",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-033271fa3d776633c",
+            "State": "available",
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "CidrBlock": "10.10.10.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "ca-central-1a",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "cac1-az1",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "832866945974",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Tier",
+                    "Value": "private"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "aura-private-a"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:ca-central-1:832866945974:subnet/subnet-03024331056936123",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-03024331056936123",
+            "State": "available",
+            "VpcId": "vpc-0cc12f91716e1224c",
+            "CidrBlock": "10.10.20.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "ca-central-1a",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        }
+    ]
+}

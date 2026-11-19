@@ -1,0 +1,161 @@
+{
+    "AutoScalingGroups": [
+        {
+            "AutoScalingGroupName": "aura-ledger-asg",
+            "AutoScalingGroupARN": "arn:aws:autoscaling:ca-central-1:832866945974:autoScalingGroup:51124cf6-fee6-4315-b788-00f8d6a39e9a:autoScalingGroupName/aura-ledger-asg",
+            "LaunchTemplate": {
+                "LaunchTemplateId": "lt-068e92c42d3a4c607",
+                "LaunchTemplateName": "aura-ledger-lt",
+                "Version": "$Latest"
+            },
+            "MinSize": 0,
+            "MaxSize": 4,
+            "DesiredCapacity": 0,
+            "DefaultCooldown": 300,
+            "AvailabilityZones": [
+                "ca-central-1b",
+                "ca-central-1a"
+            ],
+            "AvailabilityZoneIds": [
+                "cac1-az2",
+                "cac1-az1"
+            ],
+            "LoadBalancerNames": [],
+            "TargetGroupARNs": [
+                "arn:aws:elasticloadbalancing:ca-central-1:832866945974:targetgroup/aura-ledger-tg/87aad4ebe9c85851"
+            ],
+            "HealthCheckType": "ELB",
+            "HealthCheckGracePeriod": 120,
+            "Instances": [],
+            "CreatedTime": "2026-10-29T03:58:02.412000+00:00",
+            "SuspendedProcesses": [],
+            "VPCZoneIdentifier": "subnet-048e0be37958ba317,subnet-03024331056936123",
+            "EnabledMetrics": [
+                {
+                    "Metric": "WarmPoolTerminatingRetainedCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupStandbyCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolPendingRetainedCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupDesiredCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolPendingCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupAndWarmPoolTotalCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupTerminatingRetainedInstances",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupTerminatingInstances",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupAndWarmPoolDesiredCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupInServiceCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupMinSize",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupStandbyInstances",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupMaxSize",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupTerminatingCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupTotalInstances",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolTotalCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolDesiredCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolMinSize",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupPendingInstances",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolTerminatingCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupPendingCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupTerminatingRetainedCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupTotalCapacity",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "GroupInServiceInstances",
+                    "Granularity": "1Minute"
+                },
+                {
+                    "Metric": "WarmPoolWarmedCapacity",
+                    "Granularity": "1Minute"
+                }
+            ],
+            "Tags": [],
+            "TerminationPolicies": [
+                "Default"
+            ],
+            "NewInstancesProtectedFromScaleIn": false,
+            "ServiceLinkedRoleARN": "arn:aws:iam::832866945974:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+            "DefaultInstanceWarmup": 120,
+            "TrafficSources": [
+                {
+                    "Identifier": "arn:aws:elasticloadbalancing:ca-central-1:832866945974:targetgroup/aura-ledger-tg/87aad4ebe9c85851",
+                    "Type": "elbv2"
+                }
+            ],
+            "AvailabilityZoneDistribution": {
+                "CapacityDistributionStrategy": "balanced-best-effort"
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "default"
+            },
+            "InstanceLifecyclePolicy": {
+                "RetentionTriggers": {
+                    "TerminateHookAbandon": "terminate"
+                }
+            }
+        }
+    ]
+}

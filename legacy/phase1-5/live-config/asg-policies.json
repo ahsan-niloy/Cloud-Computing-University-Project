@@ -1,0 +1,29 @@
+{
+    "ScalingPolicies": [
+        {
+            "AutoScalingGroupName": "aura-ledger-asg",
+            "PolicyName": "aura-cpu-target-50",
+            "PolicyARN": "arn:aws:autoscaling:ca-central-1:832866945974:scalingPolicy:04a644a5-87fb-423f-a0dd-c013ca7c70a8:autoScalingGroupName/aura-ledger-asg:policyName/aura-cpu-target-50",
+            "PolicyType": "TargetTrackingScaling",
+            "StepAdjustments": [],
+            "Alarms": [
+                {
+                    "AlarmName": "TargetTracking-aura-ledger-asg-AlarmHigh-df149ed8-20dc-4066-8fbd-2a402567a3a1",
+                    "AlarmARN": "arn:aws:cloudwatch:ca-central-1:832866945974:alarm:TargetTracking-aura-ledger-asg-AlarmHigh-df149ed8-20dc-4066-8fbd-2a402567a3a1"
+                },
+                {
+                    "AlarmName": "TargetTracking-aura-ledger-asg-AlarmLow-989a6a9b-fa9a-44ab-ad03-9cc240784bc9",
+                    "AlarmARN": "arn:aws:cloudwatch:ca-central-1:832866945974:alarm:TargetTracking-aura-ledger-asg-AlarmLow-989a6a9b-fa9a-44ab-ad03-9cc240784bc9"
+                }
+            ],
+            "TargetTrackingConfiguration": {
+                "PredefinedMetricSpecification": {
+                    "PredefinedMetricType": "ASGAverageCPUUtilization"
+                },
+                "TargetValue": 50.0,
+                "DisableScaleIn": false
+            },
+            "Enabled": true
+        }
+    ]
+}

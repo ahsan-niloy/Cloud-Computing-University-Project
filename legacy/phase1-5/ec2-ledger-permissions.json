@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadLedgerDbSecretOnly",
+      "Effect": "Allow",
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "arn:aws:secretsmanager:ca-central-1:832866945974:secret:aura/dev/ledger-db-??????"
+    },
+    {
+      "Sid": "ReadAuraDevParameters",
+      "Effect": "Allow",
+      "Action": ["ssm:GetParameter", "ssm:GetParameters"],
+      "Resource": "arn:aws:ssm:ca-central-1:832866945974:parameter/aura/dev/*"
+    }
+  ]
+}

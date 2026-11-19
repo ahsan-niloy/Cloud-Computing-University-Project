@@ -1,0 +1,9 @@
+{
+  "Rules": [{
+    "ID": "logs-to-glacier-after-90-days",
+    "Status": "Enabled",
+    "Filter": { "Prefix": "logs/" },
+    "Transitions": [{ "Days": 90, "StorageClass": "GLACIER" }],
+    "NoncurrentVersionExpiration": { "NoncurrentDays": 30 }
+  }]
+}
