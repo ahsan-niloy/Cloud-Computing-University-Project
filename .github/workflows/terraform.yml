@@ -1,0 +1,121 @@
+# Aura Digital Bank: Terraform CI/CD for the prod environment (infra/envs/prod)
+#
+# Pull request to main  -> "plan" job: fmt check, validate, plan with the
+#                          read-only aura-github-plan role. The plan is shown
+#                          in the run summary for the reviewer.
+# Push (merge) to main  -> "apply" job: waits for a second team member to
+#                          approve the "production" environment, then plans
+#                          again and applies exactly that saved plan with the
+#                          scoped aura-github-apply role.
+#
+# AWS access uses GitHub OIDC: short-lived credentials, no stored access keys.
+
+name: terraform
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    # Only infrastructure changes trigger an apply; docs-only commits do not.
+    paths:
+      - "infra/**"
+      - ".github/workflows/terraform.yml"
+
+permissions:
+  id-token: write # lets the job request an OIDC token from GitHub
+  contents: read
+
+# Never run two Terraform jobs against the same state at once.
+concurrency:
+  group: terraform-prod
+  cancel-in-progress: false
+
+env:
+  TF_VERSION: 1.17.2
+  AWS_REGION: ca-central-1
+  TF_IN_AUTOMATION: "true"
+  TF_INPUT: "false"
+
+jobs:
+  plan:
+    name: plan
+    # Only plan PRs from branches in this repo, never from forks.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra/envs/prod
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+
+      - name: Assume read-only plan role (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_PLAN_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Check formatting (all of infra/)
+        run: terraform fmt -check -recursive ../..
+
+      - name: Init
+        run: terraform init
+
+      - name: Validate
+        run: terraform validate
+
+      - name: Plan
+        run: terraform plan -no-color -out=tfplan
+
+      - name: Show plan in run summary
+        run: |
+          {
+            echo "### Terraform plan for prod"
+            echo '```'
+            terraform show -no-color tfplan
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  apply:
+    name: apply
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    # Required reviewers on this environment pause the job until the other
+    # team member approves. The apply role only trusts this environment.
+    environment: production
+    defaults:
+      run:
+        working-directory: infra/envs/prod
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+
+      - name: Assume scoped apply role (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_APPLY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          # A Multi-AZ RDS restore can outlast the default 1-hour session.
+          role-duration-seconds: 7200
+
+      - name: Init
+        run: terraform init
+
+      - name: Plan
+        run: terraform plan -no-color -out=tfplan
+
+      - name: Apply the saved plan
+        run: terraform apply -no-color tfplan
