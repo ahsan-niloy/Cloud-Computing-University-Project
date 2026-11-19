@@ -1,0 +1,128 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "NetworkAndComputeInHomeRegion",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Create*",
+        "ec2:Delete*",
+        "ec2:Modify*",
+        "ec2:Associate*",
+        "ec2:Disassociate*",
+        "ec2:Attach*",
+        "ec2:Detach*",
+        "ec2:Replace*",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
+        "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
+        "ec2:AllocateAddress",
+        "ec2:ReleaseAddress",
+        "ec2:RunInstances"
+      ],
+      "Resource": "*",
+      "Condition": { "StringEquals": { "aws:RequestedRegion": "ca-central-1" } }
+    },
+    {
+      "Sid": "LoadBalancingAutoScalingDatabaseInHomeRegion",
+      "Effect": "Allow",
+      "Action": ["elasticloadbalancing:*", "autoscaling:*", "rds:*"],
+      "Resource": "*",
+      "Condition": { "StringEquals": { "aws:RequestedRegion": "ca-central-1" } }
+    },
+    {
+      "Sid": "TargetTrackingAlarms",
+      "Effect": "Allow",
+      "Action": ["cloudwatch:PutMetricAlarm", "cloudwatch:DeleteAlarms"],
+      "Resource": "arn:aws:cloudwatch:ca-central-1:832866945974:alarm:TargetTracking-*"
+    },
+    {
+      "Sid": "RdsManagedMasterSecretOnly",
+      "Effect": "Allow",
+      "Action": ["secretsmanager:CreateSecret", "secretsmanager:TagResource", "secretsmanager:RotateSecret"],
+      "Resource": "arn:aws:secretsmanager:ca-central-1:832866945974:secret:rds!*"
+    },
+    {
+      "Sid": "UseSnapshotKeyThroughRdsOnly",
+      "Effect": "Allow",
+      "Action": "kms:CreateGrant",
+      "Resource": "arn:aws:kms:ca-central-1:832866945974:key/cb3b2184-f03c-455f-8df8-c78fa61192ef",
+      "Condition": {
+        "StringEquals": { "kms:ViaService": "rds.ca-central-1.amazonaws.com" },
+        "Bool": { "kms:GrantIsForAWSResource": "true" }
+      }
+    },
+    {
+      "Sid": "AuraAppParameters",
+      "Effect": "Allow",
+      "Action": ["ssm:PutParameter", "ssm:DeleteParameter", "ssm:AddTagsToResource", "ssm:RemoveTagsFromResource"],
+      "Resource": "arn:aws:ssm:ca-central-1:832866945974:parameter/aura/*"
+    },
+    {
+      "Sid": "ManageLedgerRoleButNeverDeleteIt",
+      "Effect": "Allow",
+      "Action": [
+        "iam:UpdateRole",
+        "iam:UpdateRoleDescription",
+        "iam:UpdateAssumeRolePolicy",
+        "iam:TagRole",
+        "iam:UntagRole",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:TagInstanceProfile",
+        "iam:UntagInstanceProfile",
+        "iam:AddRoleToInstanceProfile",
+        "iam:RemoveRoleFromInstanceProfile"
+      ],
+      "Resource": [
+        "arn:aws:iam::832866945974:role/aura-ledger-*",
+        "arn:aws:iam::832866945974:instance-profile/aura-ledger-*"
+      ]
+    },
+    {
+      "Sid": "AttachOnlyApprovedPoliciesToLedgerRole",
+      "Effect": "Allow",
+      "Action": ["iam:AttachRolePolicy", "iam:DetachRolePolicy"],
+      "Resource": "arn:aws:iam::832866945974:role/aura-ledger-*",
+      "Condition": {
+        "ArnLike": {
+          "iam:PolicyARN": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+        }
+      }
+    },
+    {
+      "Sid": "PassLedgerRoleToEc2Only",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::832866945974:role/aura-ledger-ec2-role",
+      "Condition": { "StringEquals": { "iam:PassedToService": "ec2.amazonaws.com" } }
+    },
+    {
+      "Sid": "ListStateBucket",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2"
+    },
+    {
+      "Sid": "ReadWriteState",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject"],
+      "Resource": "arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2/*"
+    },
+    {
+      "Sid": "ReleaseLockFileOnly",
+      "Effect": "Allow",
+      "Action": "s3:DeleteObject",
+      "Resource": "arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2/*.tflock"
+    },
+    {
+      "Sid": "NeverReadComplianceRecords",
+      "Effect": "Deny",
+      "Action": "s3:GetObject*",
+      "Resource": "arn:aws:s3:::aura-compliance-*/*"
+    }
+  ]
+}
