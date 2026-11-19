@@ -1,0 +1,34 @@
+Pre-flight OK (account 832866945974)
+== aura-ledger-ec2-role policies (inline, then attached)
+aura-ledger-secrets-read
+arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+== 4.1 State bucket: aura-tfstate-ak-seng4620-x7k2
+{
+    "BucketArn": "arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2",
+    "BucketRegion": "ca-central-1",
+    "AccessPointAlias": false
+}
+Bucket already exists, re-applying settings
+Bucket configured
+== 4.2 OIDC provider
+OIDC provider already exists
+== 4.3 Plan role
+Role aura-github-plan updated
+== 4.4 Apply role
+Role aura-github-apply updated
+== 4.5 Policy simulation (every line should say PASS)
+PASS  aura-github-plan   s3:GetObject              allowed        arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2/prod/terraform.tfstate
+PASS  aura-github-plan   s3:PutObject              implicitDeny   arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2/prod/terraform.tfstate
+PASS  aura-github-plan   s3:PutObject              allowed        arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2/prod/terraform.tfstate.tflock
+PASS  aura-github-plan   s3:GetObject              explicitDeny   arn:aws:s3:::aura-compliance-ak-seng4620-x7k2/test-object
+PASS  aura-github-plan   ec2:CreateVpc             implicitDeny   *
+PASS  aura-github-apply  s3:PutObject              allowed        arn:aws:s3:::aura-tfstate-ak-seng4620-x7k2/prod/terraform.tfstate
+PASS  aura-github-apply  s3:GetObject              explicitDeny   arn:aws:s3:::aura-compliance-ak-seng4620-x7k2/test-object
+PASS  aura-github-apply  ec2:CreateVpc             allowed        *
+PASS  aura-github-apply  ec2:CreateVpc             implicitDeny   *
+PASS  aura-github-apply  ssm:PutParameter          allowed        arn:aws:ssm:ca-central-1:832866945974:parameter/aura/dev/db_host
+PASS  aura-github-apply  ssm:PutParameter          implicitDeny   arn:aws:ssm:ca-central-1:832866945974:parameter/other/test
+PASS  aura-github-apply  iam:PassRole              allowed        arn:aws:iam::832866945974:role/aura-ledger-ec2-role
+PASS  aura-github-apply  iam:PassRole              implicitDeny   arn:aws:iam::832866945974:role/aura-github-apply
+PASS  aura-github-apply  iam:DeleteRole            implicitDeny   arn:aws:iam::832866945974:role/aura-ledger-ec2-role
+Bootstrap complete.
